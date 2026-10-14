@@ -1,0 +1,41 @@
+<!-- Dán khối này vào index.html bên trong section #work, sau #hintsOutput. -->
+<section id="supportController" class="support-controller">
+  <div class="support-head">
+    <span class="support-sprout">🌱</span>
+    <div>
+      <span class="support-eyebrow">THỬ NGHIỆM QUY TẮC SƯ PHẠM 1.0</span>
+      <h3>Mầm Nhí biết lùi lại</h3>
+      <p>Giáo viên chọn loại bằng chứng quan sát được. Hệ thống áp dụng quy tắc, không tự kết luận năng lực học sinh.</p>
+    </div>
+  </div>
+  <div class="support-levels" aria-label="Ba mức hỗ trợ">
+    <span data-level-pill="0" class="is-current">0 · Tự nghĩ</span>
+    <span data-level-pill="1">1 · Gợi mở</span>
+    <span data-level-pill="2">2 · Gợi mở cụ thể</span>
+  </div>
+  <label class="field-label" for="supportEvidence">Bằng chứng sau lượt vừa rồi</label>
+  <select id="supportEvidence" class="wide-select">
+    <option value="unclear">Chưa rõ / chưa đủ bằng chứng</option>
+    <option value="no_relevant_idea">Chưa nêu được ý phù hợp sau câu hỏi</option>
+    <option value="relevant_idea">Đã nêu ý riêng phù hợp</option>
+    <option value="help_request">Học sinh yêu cầu trợ giúp</option>
+    <option value="teacher_stop">Giáo viên dừng hỗ trợ tự động</option>
+  </select>
+  <label class="field-label" for="supportAnswer">Ghi nhận câu trả lời (không nhập tên học sinh)</label>
+  <textarea id="supportAnswer" rows="2" placeholder="Ví dụ: Em có một chiếc cặp."></textarea>
+  <div class="support-output" aria-live="polite">
+    <div class="support-output-label">CÂU HỎI / HÀNH ĐỘNG TIẾP THEO</div>
+    <p id="supportQuestion">Em hãy tự quan sát đồ vật và ghi một điều em nhận thấy.</p>
+    <p id="supportReason" class="support-reason">Bắt đầu ở Mức 0: tạo cơ hội để học sinh tự nghĩ trước.</p>
+  </div>
+  <div class="support-actions">
+    <button type="button" class="btn btn-green" id="applySupportRule">Áp dụng quy tắc</button>
+    <button type="button" class="btn btn-cream" id="resetSupportRule">Lượt mới</button>
+    <button type="button" class="small-button" id="exportSupportLog">Xuất nhật ký JSON</button>
+  </div>
+  <div class="support-log-wrap">
+    <h4>Nhật ký quyết định</h4>
+    <p class="support-small">Nhật ký ở bản thử nghiệm này chỉ nằm trong phiên trình duyệt hiện tại, không đồng bộ lên máy chủ.</p>
+    <ol id="supportLog" class="support-log"><li>Chưa có quyết định nào.</li></ol>
+  </div>
+</section>
