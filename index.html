@@ -6,6 +6,7 @@
 <meta name="description" content="Không gian học viết và luyện tập dành cho học sinh tiểu học lớp 1 đến lớp 5.">
 <title>Mạch Văn Nhí AI | Trường TH Trần Quốc Toản</title>
 <link rel="stylesheet" href="style.css">
+ <link rel="stylesheet" href="support-panel.css">
 </head>
 <body>
 <header class="topbar">
@@ -90,7 +91,56 @@
    <p class="ocr-warning">Lưu ý: công cụ OCR miễn phí có thể đọc sai chữ viết tay, dấu tiếng Việt hoặc chữ mờ. Đây là bản thử nghiệm; luôn đối chiếu với ảnh gốc. Không dùng kết quả nhận diện để tự động chấm điểm học sinh.</p>
   </div>
   <div id="hintsOutput" class="hints-output hidden"></div>
-  <label class="field-label" for="reflectionInput">Sau khi luyện tập, em tự nhận xét</label><textarea id="reflectionInput" rows="2" placeholder="Em đã tự nghĩ được điều gì? Em muốn bổ sung hoặc sửa câu nào?"></textarea>
+  ```html
+<section id="supportController" class="support-controller">
+  <div class="support-head">
+    <span class="support-sprout">🌱</span>
+    <div>
+      <span class="support-eyebrow">THỬ NGHIỆM QUY TẮC SƯ PHẠM 1.0</span>
+      <h3>Mầm Nhí biết lùi lại</h3>
+      <p>Giáo viên chọn loại bằng chứng quan sát được. Hệ thống áp dụng quy tắc, không tự kết luận năng lực học sinh.</p>
+    </div>
+  </div>
+
+  <div class="support-levels">
+    <span data-level-pill="0" class="is-current">0 · Tự nghĩ</span>
+    <span data-level-pill="1">1 · Gợi mở</span>
+    <span data-level-pill="2">2 · Gợi mở cụ thể</span>
+  </div>
+
+  <label class="field-label" for="supportEvidence">Bằng chứng sau lượt vừa rồi</label>
+  <select id="supportEvidence" class="wide-select">
+    <option value="unclear">Chưa rõ / chưa đủ bằng chứng</option>
+    <option value="no_relevant_idea">Chưa nêu được ý phù hợp</option>
+    <option value="relevant_idea">Đã nêu ý riêng phù hợp</option>
+    <option value="help_request">Học sinh yêu cầu trợ giúp</option>
+    <option value="teacher_stop">Giáo viên dừng hỗ trợ</option>
+  </select>
+
+  <label class="field-label" for="supportAnswer">Câu trả lời của học sinh (không nhập tên)</label>
+  <textarea id="supportAnswer" rows="2" placeholder="Ví dụ: Em có một chiếc cặp."></textarea>
+
+  <div class="support-output" aria-live="polite">
+    <div class="support-output-label">CÂU HỎI / HÀNH ĐỘNG TIẾP THEO</div>
+    <p id="supportQuestion">Em hãy tự quan sát đồ vật và ghi một điều em nhận thấy.</p>
+    <p id="supportReason" class="support-reason">Bắt đầu ở Mức 0: tạo cơ hội để học sinh tự nghĩ trước.</p>
+  </div>
+
+  <div class="support-actions">
+    <button type="button" class="btn btn-green" id="applySupportRule">Áp dụng quy tắc</button>
+    <button type="button" class="btn btn-cream" id="resetSupportRule">Lượt mới</button>
+    <button type="button" class="small-button" id="exportSupportLog">Xuất nhật ký JSON</button>
+  </div>
+
+  <div class="support-log-wrap">
+    <h4>Nhật ký quyết định</h4>
+    <p class="support-small">Nhật ký thử nghiệm chỉ nằm trong phiên trình duyệt hiện tại.</p>
+    <ol id="supportLog" class="support-log">
+      <li>Chưa có quyết định nào.</li>
+    </ol>
+  </div>
+</section>
+<label class="field-label" for="reflectionInput">Sau khi luyện tập, em tự nhận xét</label><textarea id="reflectionInput" rows="2" placeholder="Em đã tự nghĩ được điều gì? Em muốn bổ sung hoặc sửa câu nào?"></textarea>
   <div class="work-actions"><button class="btn btn-coral" id="saveWork">Lưu vào bộ sưu tập trên thiết bị này ✓</button><button class="btn btn-cream" id="clearWork">Làm lượt mới ↻</button></div>
   <p class="privacy-note">🔒 Bản thử nghiệm lưu dữ liệu trên thiết bị đang sử dụng, chưa đồng bộ lên tài khoản hoặc máy chủ. Hãy tránh đưa tên đầy đủ, địa chỉ hay thông tin riêng tư của học sinh vào dữ liệu.</p>
  </div>
@@ -106,5 +156,8 @@
 
 <dialog id="tvDialog" class="tv-dialog"><button class="dialog-close" id="closeTv">×</button><div class="tv-head"><span>📺 PHÒNG HỌC TRÊN TIVI</span><span id="tvGradeLabel">LỚP 3</span></div><div class="tv-content"><div class="tv-mascot">🌱<small>Mầm Nhí hỏi</small></div><span class="tv-step" id="tvStep">CÂU HỎI 1/5</span><h2 id="tvQuestion">Em đang nghĩ đến đồ vật nào?</h2><p id="tvSupport">Hãy quan sát thật kỹ rồi ghi từ khóa vào giấy.</p></div><div class="tv-controls"><button class="btn btn-cream" id="tvPrev">← Câu trước</button><button class="btn btn-green" id="tvNext">Câu tiếp theo →</button></div></dialog>
 <dialog id="teacherDialog" class="teacher-dialog"><button class="dialog-close" id="closeTeacher">×</button><span class="overline">GÓC GIÁO VIÊN</span><h2>Điều khiển bài học</h2><p>Chọn lớp và chủ đề ở phần “Bài làm của em”, sau đó mở chế độ trình chiếu để cả lớp cùng quan sát câu hỏi.</p><p class="privacy-note">Lưu ý: bản này chưa có đăng nhập giáo viên hoặc đồng bộ dữ liệu trực tuyến. Ghi âm và ảnh được xử lý trong trình duyệt trên thiết bị.</p><button class="btn btn-green" id="teacherOpenTv">Mở chế độ tivi</button></dialog>
-<script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>\n<script src="app.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
+<script src="app.js"></script>
+<script src="support-controller.js"></script>
+<script src="support-panel.js"></script>
 </body></html>
