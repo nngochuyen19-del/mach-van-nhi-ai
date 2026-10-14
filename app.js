@@ -64,6 +64,61 @@ function renderHints(){
   card.append(h,p,b);grid.appendChild(card);
  });box.appendChild(grid);box.classList.remove("hidden");
 }
+
+function renderPersonalizedPrompt() {
+  const ideaInput = $("ideaInput");
+  const box = $("hintsOutput");
+  if (!box) return;
+
+  const idea = ideaInput ? ideaInput.value.trim() : "";
+
+  const old = $("personalizedHint");
+  if (old) old.remove();
+
+  const card = document.createElement("article");
+  card.id = "personalizedHint";
+  card.className = "hint-card";
+
+  const title = document.createElement("h4");
+  title.textContent = "🌱 Mầm Nhí hỏi riêng theo ý tưởng của em";
+
+  const question = document.createElement("p");
+
+  if (!idea) {
+    question.textContent =
+      "Em hãy nhập ý tưởng của mình trước nhé. Sau đó, Mầm Nhí sẽ giúp em suy nghĩ thêm.";
+  } else {
+    const normalized = idea.toLowerCase()
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .replace(/đ/g, "d");
+
+    if (currentTopic === "object") {
+      if (/mau|xanh|do|vang|tim|trang|den|hong/.test(normalized)) {
+        question.textContent =
+          "Em đã nói về màu sắc. Em hãy quan sát thêm hình dáng hoặc một chi tiết đặc biệt của đồ vật nhé. Đó là gì?";
+      } else if (/meo|cho|tho|gau|hoa|hinh|họa/.test(normalized)) {
+        question.textContent =
+          "Em đã nhắc đến một hình ảnh hoặc họa tiết. Chi tiết ấy nằm ở đâu trên đồ vật và có đặc điểm gì?";
+      } else {
+        question.textContent =
+          "Em đã có ý tưởng ban đầu rồi! Em hãy chọn một đặc điểm cụ thể của đồ vật và nói rõ hơn về đặc điểm ấy nhé.";
+      }
+    } else if (currentTopic === "animal") {
+      question.textContent =
+        "Em đã có ý tưởng về con vật. Em hãy kể thêm một đặc điểm hoặc hoạt động mà em quan sát được nhé.";
+    } else if (currentTopic === "place") {
+      question.textContent =
+        "Em đã có ý tưởng về địa điểm. Em nhớ nhất hình ảnh, âm thanh hoặc hoạt động nào ở nơi đó?";
+    } else {
+      question.textContent =
+        "Em đã có ý tưởng rồi! Em hãy nhớ lại một việc làm cụ thể của người ấy và kể thêm nhé.";
+    }
+  }
+
+  card.append(title, question);
+  box.prepend(card);
+}
 function setGrade(grade){
  currentGrade=Number(grade);$("workGrade").value=String(grade);$("gradeNote").textContent=gradeNotes[grade];
  document.querySelectorAll(".grade-tab").forEach(b=>b.classList.toggle("active",Number(b.dataset.grade)===Number(grade)));
@@ -72,7 +127,12 @@ document.querySelectorAll(".grade-tab").forEach(b=>b.addEventListener("click",()
 $("workGrade").addEventListener("change",e=>setGrade(e.target.value));
 $("workTopic").addEventListener("change",e=>{currentTopic=e.target.value;});
 document.querySelectorAll("[data-topic]").forEach(b=>b.addEventListener("click",()=>{currentTopic=b.dataset.topic;$("workTopic").value=currentTopic;document.querySelector("#work").scrollIntoView({behavior:"smooth"});renderHints();}));
-$("getHints").addEventListener("click",()=>{currentTopic=$("workTopic").value;setGrade($("workGrade").value);renderHints();});
+$("getHints").addEventListener("click",()=>{
+  currentTopic=$("workTopic").value;
+  setGrade($("workGrade").value);
+  renderHints();
+  renderPersonalizedPrompt();
+});
 function openTv(){currentTopic=$("workTopic").value;tvIndex=0;updateTv();$("tvDialog").showModal();}
 function updateTv(){const qs=tvQuestions[currentTopic]||tvQuestions.object;$("tvGradeLabel").textContent="LỚP "+currentGrade;$("tvStep").textContent=`CÂU HỎI ${tvIndex+1}/${qs.length}`;$("tvQuestion").textContent=qs[tvIndex];$("tvSupport").textContent=gradeHelp[currentGrade];$("tvPrev").disabled=tvIndex===0;$("tvNext").textContent=tvIndex===qs.length-1?"Quay lại câu đầu ↻":"Câu tiếp theo →";}
 $("openTv").addEventListener("click",openTv);$("closeTv").addEventListener("click",()=>$("tvDialog").close());$("tvPrev").addEventListener("click",()=>{tvIndex=Math.max(0,tvIndex-1);updateTv()});$("tvNext").addEventListener("click",()=>{const qs=tvQuestions[currentTopic]||tvQuestions.object;tvIndex=(tvIndex+1)%qs.length;updateTv()});
