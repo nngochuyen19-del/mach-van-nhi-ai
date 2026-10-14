@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#fff6e5">
+<title>Mạch Văn Nhí AI | Trường TH Trần Quốc Toản</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="#home" aria-label="Mạch Văn Nhí AI - Trang chủ">
+    <span class="brand-icon">🌱📖</span><span><strong>Mạch Văn Nhí AI</strong><small>Trường TH Trần Quốc Toản</small></span>
+  </a>
+  <nav class="toplinks"><a href="#library">📚 Học liệu</a><a href="#progress">⭐ Góc tiến bộ</a><button class="teacher-chip" id="teacherBtn">👩🏻‍🏫 Dành cho giáo viên</button></nav>
+  <button class="menu-toggle" id="menuToggle" aria-label="Mở menu">☰</button>
+</header>
+<div class="shell">
+<aside class="sidebar" id="sidebar">
+  <a class="nav active" href="#home">🏡 <span>Trang chủ</span></a>
+  <a class="nav" href="#classroom">📺 <span>Phòng học trên tivi</span></a>
+  <a class="nav" href="#homework">✏️ <span>Góc viết của em</span></a>
+  <a class="nav" href="#library">📚 <span>Bài học theo chủ đề</span></a>
+  <a class="nav" href="#progress">🌟 <span>Hành trình tiến bộ</span></a>
+  <div class="sidebar-note"><span>🌼</span><b>Mỗi ý tưởng là một hạt mầm.</b><br>Mỗi bài viết mang dấu ấn riêng của em.</div>
+</aside>
+<main>
+<section id="home" class="hero">
+  <div class="hero-copy">
+    <span class="eyebrow">🌷 KHÔNG GIAN KHÁM PHÁ VÀ VIẾT</span>
+    <h1>Xin chào! Mình là <em>Mầm Nhí</em> 🌱</h1>
+    <p class="lead">Mình sẽ cùng cô và các bạn khám phá thế giới viết. Mình có thể gợi ý câu hỏi, còn ý tưởng và câu chữ sẽ là của chính em!</p>
+    <div class="hero-actions"><a class="btn primary" href="#classroom">📺 Vào phòng học</a><a class="btn yellow" href="#homework">✏️ Bắt đầu viết</a></div>
+    <div class="hero-tags"><span>💡 Tư duy trước</span><span>💬 Câu hỏi gợi mở</span><span>✍️ Viết theo cách riêng</span></div>
+  </div>
+  <div class="mascot" aria-label="Nhân vật Mầm Nhí">👧🏻<span class="speech">Chào bạn!<br>Hôm nay mình viết gì nhỉ? 💗</span><span class="sparkle s1">✦</span><span class="sparkle s2">✿</span></div>
+  <div class="leaf leaf1">🌿</div><div class="leaf leaf2">🌼</div>
+</section>
+
+<section class="mode-grid">
+  <article id="classroom" class="mode-card classroom">
+    <div class="art">👩🏻‍🏫<span>📺</span><span>✏️</span></div>
+    <div class="mode-body"><span class="tag">DÀNH CHO TIẾT HỌC TRÊN LỚP</span><h2>Học cùng cô trên tivi</h2><p>Cô điều khiển bài học trên máy tính. Cả lớp quan sát câu hỏi trên tivi, mỗi bạn suy nghĩ và viết trên giấy.</p><button class="btn coral" data-open="tv">Mở chế độ trình chiếu →</button></div>
+  </article>
+  <article id="homework" class="mode-card home-mode">
+    <div class="art">🧒🏻<span>📓</span><span>🐱</span></div>
+    <div class="mode-body"><span class="tag">DÀNH CHO LUYỆN TẬP CÁ NHÂN</span><h2>Góc viết của em</h2><p>Chọn một chủ đề, trả lời câu hỏi gợi mở, rồi tự viết và tự kiểm tra bài của mình.</p><button class="btn green" data-open="practice">Vào góc viết của em →</button></div>
+  </article>
+</section>
+
+<section id="library" class="section">
+  <div class="section-title"><div><span class="eyebrow">CÙNG KHÁM PHÁ</span><h2>Những bài học nổi bật</h2></div><a href="#all-lessons" class="text-link">Xem tất cả →</a></div>
+  <div class="lesson-grid" id="all-lessons">
+    <button class="lesson" data-topic="object"><span class="lesson-art pink">🎒</span><b>Tả một đồ vật quen thuộc</b><small>Tiếng Việt · Lớp 3</small><span class="round-arrow">↗</span></button>
+    <button class="lesson" data-topic="place"><span class="lesson-art blue">🌳</span><b>Tả cảnh đẹp quê hương</b><small>Tiếng Việt · Lớp 3</small><span class="round-arrow">↗</span></button>
+    <button class="lesson" data-topic="animal"><span class="lesson-art yellow-bg">🐶</span><b>Tả con vật em yêu thích</b><small>Tiếng Việt · Lớp 3</small><span class="round-arrow">↗</span></button>
+    <button class="lesson" data-topic="person"><span class="lesson-art lilac">🧑🏻‍🌾</span><b>Kể về một người lao động</b><small>Hoạt động trải nghiệm</small><span class="round-arrow">↗</span></button>
+  </div>
+</section>
+
+<section id="progress" class="progress-panel">
+ <div><span class="eyebrow">MỖI NGÀY MỘT CHÚT</span><h2>Hành trình tiến bộ của em</h2><p>Biết quan sát, chọn ý, sắp xếp câu và tự đọc lại bài viết là những bước tiến đáng quý.</p></div>
+ <div class="journey"><span>🌱<small>Bắt đầu</small></span><i></i><span>🪴<small>Đang luyện tập</small></span><i></i><span>🌳<small>Tiến bộ</small></span></div>
+</section>
+<footer>🌿 Mạch Văn Nhí AI · Trường TH Trần Quốc Toản <span>Học bằng suy nghĩ, lớn lên qua từng bài viết.</span></footer>
+</main>
+</div>
+
+<dialog id="lessonDialog" class="dialog">
+  <form method="dialog"><button class="close" aria-label="Đóng">×</button></form>
+  <div class="dialog-head"><span class="eyebrow">🌱 CÙNG MẦM NHÍ KHÁM PHÁ</span><h2 id="dialogTitle">Góc viết của em</h2><p id="dialogIntro">Hãy nghĩ trước khi xem câu hỏi gợi mở nhé.</p></div>
+  <div class="steps"><span class="step active">1. Em nghĩ</span><span class="step">2. Gợi mở</span><span class="step">3. Em viết</span><span class="step">4. Tự kiểm tra</span></div>
+  <div id="dialogContent">
+    <label for="studentThought">Ý tưởng đầu tiên của em (không cần viết thành đoạn văn):</label>
+    <textarea id="studentThought" rows="3" placeholder="Ví dụ: chiếc cặp màu hồng, có hình ngôi sao..."></textarea>
+    <button class="btn primary" id="hintBtn" type="button">Mầm Nhí gợi ý cho em 💬</button>
+    <div id="hintBox" class="hint-box hidden" aria-live="polite"></div>
+    <div class="tip">✍️ Sau khi suy nghĩ, em hãy viết bằng lời của mình vào vở hoặc giấy nhé.</div>
+    <label for="reflection">Em đã tự làm được điều gì?</label>
+    <textarea id="reflection" rows="2" placeholder="Em tự chọn được ý nào? Em muốn sửa điều gì?"></textarea>
+    <button class="btn green" id="finishBtn" type="button">Hoàn thành lượt luyện tập ✓</button>
+    <div id="finishMessage" class="success hidden" role="status"></div>
+  </div>
+</dialog>
+
+<dialog id="tvDialog" class="tv-dialog">
+ <button class="close tv-close" id="closeTv">×</button>
+ <div class="tv-screen">
+  <span class="eyebrow">MẠCH VĂN NHÍ AI · TRƯỜNG TH TRẦN QUỐC TOẢN</span>
+  <h2 id="tvTitle">Điều gì làm đồ vật của em đặc biệt?</h2>
+  <p id="tvQuestion">Em hãy quan sát đồ vật. Em chú ý nhất đến chi tiết nào?</p>
+  <div class="tv-reminder">🌱 Hãy suy nghĩ trước, rồi ghi ý tưởng vào giấy.</div>
+  <div class="tv-controls"><button class="btn yellow" id="prevQuestion">← Câu trước</button><span id="tvCount">Câu hỏi 1/4</span><button class="btn primary" id="nextQuestion">Câu tiếp theo →</button></div>
+ </div>
+</dialog>
+
+<dialog id="teacherDialog" class="dialog teacher-dialog">
+ <form method="dialog"><button class="close">×</button></form>
+ <span class="eyebrow">GÓC DÀNH CHO GIÁO VIÊN</span><h2>Điều khiển bài học</h2>
+ <p>Chọn bài học, mở chế độ tivi và sử dụng các câu hỏi gợi mở mẫu. Đây là bản thử nghiệm giao diện; AI trực tuyến cần được kết nối máy chủ riêng trước khi sử dụng.</p>
+ <div class="tip">🔒 Không nhập thông tin nhận dạng hoặc dữ liệu nhạy cảm của học sinh vào bản thử nghiệm này.</div>
+ <button class="btn primary" id="teacherStartTv">Mở chế độ tivi</button>
+</dialog>
+<script src="app.js"></script>
+</body>
+</html>
