@@ -1,26 +1,31 @@
-# Mạch Văn Nhí AI — website công khai bản đầu
+# Mạch Văn Nhí AI v3 — Trường TH Trần Quốc Toản
 
-Đây là website tĩnh responsive, có các nút điều hướng, bài học mẫu, hộp thoại luyện tập và chế độ trình chiếu. Nội dung tiếng Việt dùng UTF-8.
+Bản nâng cấp giao diện, minh họa Mầm Nhí, lựa chọn lớp 1–5, chế độ tivi, gợi ý theo chủ đề, ghi âm ý tưởng, chọn ảnh bài viết và lưu bộ sưu tập cục bộ.
 
-## Chạy trên Mac
-1. Giải nén ZIP.
-2. Mở `index.html` bằng Chrome để xem thử, hoặc chạy máy chủ tĩnh:
-   - Mở Terminal tại thư mục này.
-   - Chạy `python3 -m http.server 8000`
-   - Mở `http://localhost:8000`
+## Chạy thử
+- Giải nén ZIP.
+- Mở `index.html` trong Chrome hoặc Safari.
+- Để dùng micro ổn định, chạy qua HTTPS sau khi xuất bản GitHub Pages hoặc dùng máy chủ localhost. Trình duyệt sẽ hỏi quyền truy cập micro.
 
-Không cần Node.js cho bản tĩnh này.
+## Cập nhật GitHub Pages đang có
+1. Giải nén ZIP trên máy tính.
+2. Mở repository `nngochuyen19-del/mach-van-nhi-ai` trên GitHub.
+3. Chọn **Add file → Upload files**.
+4. Kéo thả và tải lên cả 3 file `index.html`, `style.css`, `app.js` từ bản v3; chấp nhận thay thế file cũ.
+5. Nhấn **Commit changes**. Đợi GitHub Pages cập nhật.
+6. Mở website và tải lại mạnh bằng `Cmd + Shift + R`.
 
-## Đưa lên mạng để mọi người bấm link — GitHub Pages miễn phí
-1. Tạo tài khoản GitHub nếu chưa có tại https://github.com/
-2. Tạo repository mới, ví dụ `mach-van-nhi-ai`.
-3. Upload ba file `index.html`, `style.css`, `app.js` lên thư mục gốc của repository.
-4. Vào **Settings → Pages**.
-5. Trong **Build and deployment**, chọn **Deploy from a branch**; Branch `main`, folder `/ (root)`; nhấn **Save**.
-6. Đợi vài phút, GitHub sẽ hiển thị địa chỉ công khai dạng `https://TEN-TAI-KHOAN.github.io/mach-van-nhi-ai/`.
-7. Gửi link đó cho giáo viên/phụ huynh; mọi người có thể mở mà không cần tài khoản GitHub.
+## Giới hạn quan trọng
+- Bản này chưa có AI trực tuyến; các gợi ý là thư viện câu hỏi được lập trình sẵn theo chủ đề và lớp.
+- Ghi âm/ảnh/bài làm được lưu trong localStorage của trình duyệt trên thiết bị hiện tại. Dữ liệu không tự đồng bộ sang giáo viên/thiết bị khác; trình duyệt có thể giới hạn dung lượng lưu ảnh/âm thanh.
+- Ảnh được giới hạn 5 MB trước khi lưu. Không nhập tên đầy đủ hoặc thông tin riêng tư của học sinh.
+- Trước khi dùng thật trong trường, cần backend có đăng nhập, quyền truy cập riêng, lưu trữ an toàn, chính sách giữ/xóa dữ liệu và sự đồng ý phù hợp cho việc ghi âm/chụp ảnh học sinh.
 
-## Quan trọng
-- Website chưa được xuất bản lên mạng. Người tạo phải thực hiện bước triển khai GitHub Pages để có link thật.
-- Các câu hỏi hiện là mẫu minh họa, không phải AI trực tuyến. Nút “Mầm Nhí gợi ý” hiện dùng câu hỏi mẫu dựa theo nội dung nhập. Muốn AI thật cần API server-side, xác thực, giới hạn lượt gọi và bảo vệ dữ liệu; không đặt API key trong JavaScript công khai.
-- Không nhập dữ liệu cá nhân của học sinh vào bản thử nghiệm này.
+
+## Nhận diện chữ trong ảnh (OCR miễn phí — bản thử nghiệm)
+- Chọn/chụp ảnh bài viết, sau đó nhấn **Đọc chữ trong ảnh miễn phí**.
+- Bản này dùng Tesseract.js chạy trong trình duyệt và dữ liệu ngôn ngữ tiếng Việt tải từ CDN; lần đầu cần Internet.
+- Không cần API key và ảnh được xử lý trong trình duyệt, nhưng không cam kết ảnh không được lưu bởi trình duyệt/thiết bị.
+- **Giới hạn quan trọng:** Tesseract chủ yếu hoạt động tốt hơn với chữ in; chữ viết tay của học sinh tiểu học, dấu tiếng Việt, ảnh nghiêng hoặc mờ có thể nhận diện sai. Học sinh cần đối chiếu ảnh gốc và sửa văn bản trước khi dùng.
+- OCR chưa phải AI hiểu bài, chưa tự nhận xét ngữ nghĩa, chưa chấm điểm và không tự sửa câu thay học sinh.
+- Nếu không tải được thư viện hoặc dữ liệu ngôn ngữ, kiểm tra Internet và tải lại trang.
